@@ -16,7 +16,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body class="main">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -47,18 +47,54 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Имя приложения</a>
+                    <!--menu-->
+                    <asp:Menu class="Menu1" runat="server" DynamicHorizontalOffset="2" Font-Names="Arial" Font-Size="medium" Orientation="Horizontal" StaticSubMenuIndent="10px" Width="1200px">
+              
+                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+               
+                            <Items>
+                                <asp:MenuItem NavigateUrl="~/" Text="Домашняя" Value="Домашняя"></asp:MenuItem>
+                                    <asp:MenuItem Text="Инспектор" Value="Инспектора">
+                                        <asp:MenuItem NavigateUrl="~/Post.aspx" Text="Должности" Value="Должности"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Records.aspx" Text="Послужной список" Value="Послужной список"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Employees.aspx" Text="Сотрудники" Value="Сотрудники"></asp:MenuItem>
+                                    </asp:MenuItem>
+
+                                    <asp:MenuItem Text="Нарушения" Value="Нарушения">
+                                        <asp:MenuItem NavigateUrl="~/Types_of_violations.aspx" Text="Виды нарушения" Value="Виды нарушения"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Penalties.aspx" Text="Штрафные санкции" Value="Штрафные санкции"></asp:MenuItem>
+                                    </asp:MenuItem>
+
+                                    <asp:MenuItem Text="Проверки" Value="Проверки">
+                                        <asp:MenuItem NavigateUrl="~/Companies.aspx" Text="Предприятия" Value="Предприятия"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Checks.aspx" Text="Проверки" Value="Проверки"></asp:MenuItem>
+                                    </asp:MenuItem>
+                            </Items>
+                        <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    </asp:Menu>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Домашняя</a></li>
-                        <li><a runat="server" href="~/About">Информация</a></li>
-                        <li><a runat="server" href="~/Contact">Связаться</a></li>
-                    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 
+                
+                <div class="autorise">
+                   
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Регистрация</a></li>
+                            <ul class="nav navbar-nav navbar-right" >
+                                <li ><a runat="server" href="~/Account/Register" >Регистрация</a></li>
                                 <li><a runat="server" href="~/Account/Login">Вход</a></li>
                             </ul>
                         </AnonymousTemplate>
@@ -71,7 +107,7 @@
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
-                </div>
+                </div> 
             </div>
         </div>
         <div class="container body-content">
